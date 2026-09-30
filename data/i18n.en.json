@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Fullstack Developer",
+    "title": "I build digital solutions",
+    "highlight": "innovative and scalable",
+    "description": "Passionate developer building robust web applications, elegant interfaces, and clean architectures. Specialized in the modern JavaScript/TypeScript ecosystem.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Contact Me"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Hi! I'm Gregorio Navarrete, a fullstack developer with over 3 years of experience creating modern web applications.",
+    "journey": "My programming journey started as a hobby over 3 years ago. At university I immersed myself in algorithm analysis and dynamic data structure programming in C, C++, and Java. However, I developed an interest in building programs in a more visual environment like the web, learning both frontend and backend.",
+    "learning": "Currently I keep learning and building web projects through courses on platforms like Digital House and Platzi.",
+    "highlights": "Among my achievements I highlight the creation of scalable systems, high-performance APIs, and accessible interfaces.",
+    "cv": "Download CV"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of my most recent and relevant work",
+    "filters": {
+      "all": "All",
+      "featured": "Featured",
+      "fullstack": "Fullstack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "webapp": "Web Apps",
+      "tooling": "Tooling",
+      "data-science": "Data Science"
+    },
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "viewDemo": "Live Demo",
+    "techStack": "Technologies",
+    "role": "Role",
+    "year": "Year"
+  },
+  "projectModal": {
+    "close": "Close",
+    "details": "Details",
+    "description": "Description",
+    "technologies": "Technologies",
+    "links": "Links",
+    "demo": "Demo",
+    "github": "GitHub",
+    "docs": "Documentation",
+    "npm": "NPM",
+    "caseStudy": "Case Study"
+  },
+  "footer": {
+    "copyright": "© 2024 Fullstack Developer. Built with passion.",
+    "madeWith": "Made with",
+    "and": "and"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "themeToggle": "Toggle theme",
+    "languageToggle": "Toggle language",
+    "projectCard": "Project card",
+    "projectImage": "Project image",
+    "projectVideo": "Project video"
+  }
+}

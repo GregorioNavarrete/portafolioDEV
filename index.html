@@ -1,155 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <title>Gregorio N-Portafolio</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n="meta.description" content="Portfolio de Gregorio Navarrete - Desarrollador Fullstack especializado en JavaScript/TypeScript, React, Node.js y arquitecturas escalables.">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <title data-i18n="meta.title">Gregorio Navarrete - Fullstack Developer</title>
 </head>
-
 <body>
+  <a href="#main" class="skip-link" data-i18n="a11y.skipToContent">Saltar al contenido principal</a>
 
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="#home" class="header__logo" data-i18n="meta.title">Gregorio Navarrete</a>
 
-    <!-- agrego codigo  -->
-    <div class="Español inactive">
-            <!-- quiero q oculte este bloque si el boton esta en ingles -->
-    <header>
-        <h1></h1>
-        <!-- <button id="darkModeBtn">Modo Oscuro</button> -->
-        <button id="langBtn">
-            <img src="https://media.flaticon.com/dist/min/img/flags/en.svg" width="25" height="25" loading="lazy">
-        </button>
-        <div class="cambiar-tema">
-            <button id="btn-dark" type="button" class="btn icon" value="dark" onclick="cambiarTema(this.value)">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button id="btn-light" type="button" class="btn icon" value="light" onclick="cambiarTema(this.value)">
-                <i class="fas fa-sun"></i>
-            </button>
+      <nav class="header__nav" role="navigation" aria-label="Navegación principal" data-nav-container>
+        <ul class="flex flex--center gap-4" role="menubar">
+          <li role="none"><a href="#home" class="nav-link" data-nav-link data-i18n="nav.home" role="menuitem">Inicio</a></li>
+          <li role="none"><a href="#about" class="nav-link" data-nav-link data-i18n="nav.about" role="menuitem">Sobre mí</a></li>
+          <li role="none"><a href="#projects" class="nav-link" data-nav-link data-i18n="nav.projects" role="menuitem">Proyectos</a></li>
+          <li role="none"><a href="#contact" class="nav-link" data-nav-link data-i18n="nav.contact" role="menuitem">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions flex flex--center gap-2">
+        <!-- Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
+          <button class="lang-switcher__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" data-lang-btn>
+            <img class="lang-switcher__flag" id="langFlag" src="https://media.flaticon.com/dist/min/img/flags/es.svg" alt="" loading="lazy" width="20" height="14">
+            <span id="langText" data-i18n="language.es">Español</span>
+            <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
+          </button>
+          <div class="lang-dropdown" role="menu" aria-label="Idiomas disponibles" hidden>
+            <button class="lang-dropdown__item" role="menuitem" data-lang="es" data-i18n="language.es">Español</button>
+            <button class="lang-dropdown__item" role="menuitem" data-lang="en" data-i18n="language.en">English</button>
+          </div>
         </div>
-    </header>
 
-    <section>
-        <img class="perfi" src="perfil2.png" alf="<%=producto.titulo%>"style="width: 200px;height: 200px;margin-right: 20px;margin-left: 20px;border-radius: 100px;">
-        <h1>
-            Sobre mí.<br>
-            Soy un desarrollador fullstack. <br>
-            Apasionado por crear <span class="text-primary">soluciones innovadoras.</span>
-        </h1>
-        <a class="primary-link" target="_blank">Ver mas!</a>
-        
-        <a class="primary-link" target="_blank" href="https://www.linkedin.com/in/gregorio-navarrete/">LinkedIn</a>
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" role="group" aria-label="Cambiar tema">
+          <button class="theme-toggle__btn" data-theme-toggle="light" data-theme-value="light" aria-pressed="false" aria-label="Modo claro" title="Modo claro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </button>
+          <button class="theme-toggle__btn" data-theme-toggle="dark" data-theme-value="dark" aria-pressed="true" aria-label="Modo oscuro" title="Modo oscuro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="theme-toggle__btn" data-theme-toggle="system" aria-pressed="false" aria-label="Sistema" title="Sistema">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+        </div>
 
+        <!-- Mobile Menu Button -->
+        <button class="icon-btn mobile-menu-btn" data-mobile-menu-btn aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="menu-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          <svg class="menu-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" data-mobile-menu role="navigation" aria-label="Menú móvil" hidden>
+      <nav>
+        <ul class="flex flex--column gap-2 p-4">
+          <li><a href="#home" class="nav-link btn btn--ghost btn--full" data-nav-link data-i18n="nav.home">Inicio</a></li>
+          <li><a href="#about" class="nav-link btn btn--ghost btn--full" data-nav-link data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="#projects" class="nav-link btn btn--ghost btn--full" data-nav-link data-i18n="nav.projects">Proyectos</a></li>
+          <li><a href="#contact" class="nav-link btn btn--primary btn--full" data-nav-link data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" data-parallax="0.3"></div>
+
+      <div class="hero__content container">
+        <div class="hero__grid">
+          <div class="hero__text">
+            <span class="hero__badge" data-i18n="hero.badge">Desarrollador Fullstack</span>
+            <h1 id="hero-title" class="hero__title">
+              <span data-i18n="hero.title">Creo soluciones digitales</span>
+              <br>
+              <span class="hero__highlight" data-i18n="hero.highlight">innovadoras y escalables</span>
+            </h1>
+            <p class="hero__description" data-i18n="hero.description">
+              Desarrollador apasionado por construir aplicaciones web robustas, interfaces elegantes y arquitecturas limpias. Especializado en el ecosistema JavaScript/TypeScript moderno.
+            </p>
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn--primary btn--lg" data-i18n="hero.ctaPrimary">Ver proyectos</a>
+              <a href="#contact" class="btn btn--secondary btn--lg" data-i18n="hero.ctaSecondary">Contactar</a>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="hero__avatar pulse-ring" data-parallax="0.1">
+              <img src="assets/images/perfil2.png" alt="Gregorio Navarrete - Fullstack Developer" loading="eager" width="350" height="350">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll" style="position: absolute; bottom: var(--space-8); left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-text-tertiary);">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+      </div>
     </section>
 
-        <section id="about">
-            
-            <h2><span class="text-primary">Sobre mí</span></h2>
-            <p id="aboutText">¡Hola! Soy un desarrollador fullstack apasionado por crear soluciones innovadoras.</p>
-            <p id="aboutText">Hola soy Gregorio Navarrete, estudiante avanzado de programacion en la universidad y desarrollador Fullstack.</p>
-            <p id="aboutText">Inicie en la programacion como un hobby hace poco mas de 3 años.
-                En la universidad, me sumergí en el análisis de algoritmos y el desarrollo de programas con estructuras dinámicas en lenguajes como C, C++ y JAVA, los cuales corrían en la terminal.
-                Sin embargo, surgió en mí un interés por aprender y desarrollar programas en un entorno más visual, como la web. Aprendí mucho sobre el front y back end.</p>
-                <p id="aboutText">Hoy en dia sigo aprediendo y haciendo proyectos web tomando cursos como en "Digital House" y "Platzi". </p>
-            <p id="aboutText">Entre mis logros destaco ...</p>
-            <p id="aboutText">Como proyecto personal ...</p>
-            <p id="aboutText">Por último, les comparto mi hoja de vida actualizada, donde de forma más detallada específico mi experiencia laboral, logros y formación académica. </p>
-        </section>
-        <section  class="projects" >
-            <h2><span class="text-primary" >Proyectos</span></h2>
-            <div class="project">
-                <h3>Proyecto Prisma</h3>
-                <div class="sliders">
-                    <div class="sidebar">
-
-                        <video width="800" height="601" controls>
-                            <source src="path_to_your_video.mp4" type="video/mp4">
-                            
-                        </video>
-                        
-                    </div>
-                </div>
-                <p>Descripción del Proyecto 1.</p>
-                <a href="#">Ver Proyecto</a>
-            </div>
-            <div class="project">
-                <h3>Proyecto 2</h3>
-                <p>Descripción del Proyecto 2.</p>
-                <a href="#">Ver Proyecto</a>
-            </div>
-            <!-- Agrega más proyectos según sea necesario -->
-        </section>
-        <footer style="width: 100%;
-    text-align: center;">
-            <p>&copy; 2024 Desarrollador Fullstack</p>
-        </footer>
-    </div>
-
-    <div class="ingles" >
-        <!-- quisiera que con el JS me oculte todo que esta el boton en español  -->
-        <header>
-            <h1></h1>
-            <!-- <button id="darkModeBtn2">Dark Mode</button> -->
-            <button id="langBtn2">
-                <img src="https://media.flaticon.com/dist/min/img/flags/es.svg" width="25" height="25" loading="lazy">
-            </button>
-            <div class="cambiar-tema">
-                <button id="btn-darkIngles" type="button" class="btn icon" value="dark" onclick="cambiarTemaIngles(this.value)">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="btn-lightIngles" type="button" class="btn icon" value="light" onclick="cambiarTemaIngles(this.value)">
-                    <i class="fas fa-sun"></i>
-                </button>
-            </div>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section reveal" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag" data-i18n="projects.filters.featured">Destacado</span>
+          <h2 id="about-title" class="section__title" data-i18n="about.title">Sobre mí</h2>
+          <p class="section__description" data-i18n="about.description">
+            ¡Hola! Soy Gregorio Navarrete, desarrollador fullstack con más de 3 años de experiencia creando aplicaciones web modernas.
+          </p>
         </header>
-        <section>
-            <img class="perfi" src="perfil2.png" alf="<%=producto.titulo%>"style="width: 200px;height: 200px;margin-right: 20px;margin-left: 20px;border-radius: 100px;">
-            <h1>
-                About mi. <br>
-                I am a fullstack developer. <br>
-                Passionate about creating <span class="text-primary">innovative solutions.</span>
-            </h1>
-            <a class="primary-link" target="_blank">See more!</a>
-        </section>
-        <section id="about">
-            <h2><span class="text-primary" >About Me</span></h2>
-            <p id="aboutText">Hello! I am a fullstack developer passionate about creating innovative solutions.</p>
-        </section>
-        <section  class="projects2" >
-            <h2><span class="text-primary" >Projects</span></h2>
-            <div class="project">
-                <h3>Proyecto Prisma</h3>
-                <div class="sliders">
-                    <div class="sidebar">
 
-                        <video width="800" height="601" controls>
-                            <source src="path_to_your_video.mp4" type="video/mp4">
-                            
-                        </video>
-                        
-                    </div>
-                </div>
-                <p>Descripción del Proyecto 1.</p>
-                <a href="#">Ver Proyecto</a>
+        <div class="grid grid--2 gap-8">
+          <div class="reveal reveal--stagger-1">
+            <h3 style="margin-bottom: var(--space-4);" data-i18n="about.journeyTitle">Mi trayectoria</h3>
+            <p data-i18n="about.journey">
+              Mi viaje en la programación comenzó como hobby hace más de 3 años. En la universidad me sumergí en el análisis de algoritmos y desarrollo de programas con estructuras dinámicas en C, C++ y Java. Sin embargo, surgió en mí un interés por desarrollar programas en un entorno más visual como la web, aprendiendo tanto frontend como backend.
+            </p>
+            <p style="margin-top: var(--space-4);" data-i18n="about.learning">
+              Actualmente sigo aprendiendo y construyendo proyectos web tomando cursos en plataformas como Digital House y Platzi.
+            </p>
+          </div>
+
+          <div class="reveal reveal--stagger-2">
+            <h3 style="margin-bottom: var(--space-4);" data-i18n="about.skillsTitle">Habilidades principales</h3>
+            <div class="flex flex--wrap gap-2" style="margin-bottom: var(--space-6);">
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">TypeScript</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">React</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">Node.js</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">PostgreSQL</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">Docker</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">AWS</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">Testing</span>
+              <span class="tech-tag" style="background: var(--color-primary-100); color: var(--color-primary-700);">CI/CD</span>
             </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of Project 2.</p>
-                <a href="#">View Project</a>
+            <p data-i18n="about.highlights">
+              Entre mis logros destaco la creación de sistemas escalables, APIs de alto rendimiento y interfaces accesibles.
+            </p>
+            <a href="#" class="btn btn--outline mt-4" data-i18n="about.cv">
+              <i class="fas fa-download"></i>
+              Descargar CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="projects section reveal" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag" data-i18n="projects.filters.featured">Proyectos</span>
+          <h2 id="projects-title" class="section__title" data-i18n="projects.title">Proyectos Destacados</h2>
+          <p class="section__description" data-i18n="projects.subtitle">Una selección de mis trabajos más recientes y relevantes</p>
+        </header>
+
+        <!-- Filtros -->
+        <div class="projects__filters" role="group" aria-label="Filtrar proyectos" data-projects-filters>
+          <!-- Se renderiza dinámicamente desde JS -->
+        </div>
+
+        <!-- Grid de proyectos -->
+        <div class="projects__grid" role="list" aria-label="Lista de proyectos" data-projects-grid>
+          <!-- Se renderiza dinámicamente desde JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section reveal" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag" data-i18n="nav.contact">Contacto</span>
+          <h2 id="contact-title" class="section__title">¿Tienes un proyecto en mente?</h2>
+          <p class="section__description">Estoy abierto a nuevas oportunidades, colaboraciones interesantes o simplemente charlar sobre tecnología. No dudes en escribirme.</p>
+        </header>
+
+        <div class="grid grid--2 gap-8" style="max-width: 800px; margin: 0 auto;">
+          <div class="reveal reveal--stagger-1">
+            <h3 style="margin-bottom: var(--space-4);">Escríbeme directamente</h3>
+            <form class="contact-form" style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <div>
+                <label for="name" class="sr-only" data-i18n="contact.name">Nombre</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required aria-required="true">
+              </div>
+              <div>
+                <label for="email" class="sr-only" data-i18n="contact.email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required aria-required="true">
+              </div>
+              <div>
+                <label for="message" class="sr-only" data-i18n="contact.message">Mensaje</label>
+                <textarea id="message" name="message" rows="5" class="form-input" placeholder="Cuéntame sobre tu proyecto..." required aria-required="true"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg" data-i18n="contact.send">Enviar mensaje</button>
+            </form>
+          </div>
+
+          <div class="reveal reveal--stagger-2">
+            <h3 style="margin-bottom: var(--space-4);">O conéctame por aquí</h3>
+            <div class="flex flex--column gap-3">
+              <a href="https://linkedin.com/in/gregorio-navarrete" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--full link-underline">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+              </a>
+              <a href="https://github.com/usuario" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--full link-underline">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="mailto:gregorio@email.com" class="btn btn--secondary btn--full link-underline">
+                <i class="fas fa-envelope"></i>
+                Email
+              </a>
+              <a href="https://twitter.com/usuario" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--full link-underline">
+                <i class="fab fa-twitter"></i>
+                Twitter
+              </a>
             </div>
-            <!-- Add more projects as necessary -->
-        </section>
-        <footer style="width: 100%;
-    text-align: center;">
-            <p>&copy; 2024 Fullstack Developer</p>
-        </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner container">
+      <p class="footer__copyright" data-i18n="footer.copyright">© 2024 Desarrollador Fullstack. Construido con pasión.</p>
+      <nav class="footer__links" aria-label="Enlaces sociales">
+        <a href="https://github.com/usuario" class="footer__link" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">GitHub</a>
+        <a href="https://linkedin.com/in/gregorio-navarrete" class="footer__link" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkedin">LinkedIn</a>
+        <a href="mailto:gregorio@email.com" class="footer__link" data-i18n="footer.email">Email</a>
+      </nav>
     </div>
-    
-    <script src="./script1.js"></script>
-</body>
+  </footer>
 
+  <!-- ===== SCRIPTS ===== -->
+  <script type="module" src="js/main.js"></script>
+</body>
 </html>

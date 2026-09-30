@@ -1,0 +1,128 @@
+{
+  "projects": [
+    {
+      "id": "prisma",
+      "title": "Proyecto Prisma",
+      "shortDescription": "Plataforma de gestión empresarial con módulos de inventario, ventas y analítica en tiempo real.",
+      "fullDescription": "Proyecto Prisma es una solución completa de gestión empresarial (ERP) desarrollada para PYMEs que necesitan centralizar sus operaciones. Incluye módulos de inventario inteligente con alertas de stock, punto de venta (POS) integrado, facturación electrónica, CRM ligero y un dashboard analítico con métricas en tiempo real usando WebSockets.",
+      "image": "assets/images/perfil2.png",
+      "video": "assets/videos/path_to_your_video.mp4",
+      "poster": "assets/images/perfil2.png",
+      "techStack": ["React", "TypeScript", "Node.js", "PostgreSQL", "WebSockets", "Tailwind CSS", "Docker"],
+      "category": "fullstack",
+      "links": {
+        "demo": "https://prisma-demo.example.com",
+        "github": "https://github.com/usuario/prisma",
+        "caseStudy": "#"
+      },
+      "featured": true,
+      "year": 2024,
+      "role": "Fullstack Developer & Arquitecto"
+    },
+    {
+      "id": "taskflow",
+      "title": "TaskFlow",
+      "shortDescription": "Aplicación de productividad colaborativa con tableros Kanban, automatizaciones y métricas de equipo.",
+      "fullDescription": "TaskFlow es una herramienta de gestión de proyectos inspirada en Linear y Notion. Permite crear espacios de trabajo, tableros Kanban personalizables, automatizaciones tipo 'si esto entonces aquello', seguimiento de tiempo, y reportes de productividad por miembro del equipo. Implementa edición colaborativa en tiempo real usando CRDTs.",
+      "image": "assets/images/perfil.png",
+      "video": null,
+      "poster": "assets/images/perfil.png",
+      "techStack": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Socket.io", "Yjs", "Vercel"],
+      "category": "webapp",
+      "links": {
+        "demo": "https://taskflow.example.com",
+        "github": "https://github.com/usuario/taskflow",
+        "caseStudy": "#"
+      },
+      "featured": true,
+      "year": 2024,
+      "role": "Fullstack Developer"
+    },
+    {
+      "id": "devhub",
+      "title": "DevHub CLI",
+      "shortDescription": "Herramienta de línea de comandos para automatizar flujos de trabajo de desarrollo: scaffolding, deploy, monitoreo.",
+      "fullDescription": "DevHub CLI es una herramienta open source que automatiza tareas repetitivas de desarrollo. Incluye generadores de proyectos (React, Next.js, Node, Go), gestión de secretos integrada con 1Password/Bitwarden, deploy a múltiples clouds (Vercel, AWS, Railway), y monitoreo de salud de aplicaciones con alertas en Slack/Discord.",
+      "image": "assets/images/perfil2.png",
+      "video": null,
+      "poster": "assets/images/perfil2.png",
+      "techStack": ["TypeScript", "Node.js", "Commander.js", "Inquirer", "Docker", "GitHub Actions"],
+      "category": "tooling",
+      "links": {
+        "demo": null,
+        "github": "https://github.com/usuario/devhub-cli",
+        "npm": "https://npmjs.com/package/@usuario/devhub"
+      },
+      "featured": false,
+      "year": 2023,
+      "role": "Creador & Maintainer"
+    },
+    {
+      "id": "ecomerce-api",
+      "title": "E-Commerce API",
+      "shortDescription": "API RESTful de alta performance para comercio electrónico con arquitectura hexagonal y eventos de dominio.",
+      "fullDescription": "Backend robusto para plataformas de e-commerce construido con arquitectura hexagonal (Ports & Adapters). Implementa CQRS para separar lectura/escritura, event sourcing para auditoría completa, idempotencia en pagos, rate limiting adaptativo, y testing exhaustivo (unit, integration, contract). Documentación OpenAPI 3.1 automática.",
+      "image": "assets/images/perfil.png",
+      "video": null,
+      "poster": "assets/images/perfil.png",
+      "techStack": ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Redis", "RabbitMQ", "Kafka", "Jest", "k6"],
+      "category": "backend",
+      "links": {
+        "demo": null,
+        "github": "https://github.com/usuario/ecomerce-api",
+        "docs": "https://api-docs.example.com"
+      },
+      "featured": false,
+      "year": 2023,
+      "role": "Backend Developer & Arquitecto"
+    },
+    {
+      "id": "design-system",
+      "title": "Aurora Design System",
+      "shortDescription": "Sistema de diseño accesible y temático con 60+ componentes, tokens de diseño y documentación interactiva.",
+      "fullDescription": "Aurora es un sistema de diseño completo construido desde cero con enfoque en accesibilidad (WCAG 2.1 AA), theming avanzado (modo oscuro, high contrast, brand themes), y developer experience. Incluye Storybook interactivo, CLI para generar componentes, tokens en Figma sincronizados, y paquetes para React, Vue y HTML puro.",
+      "image": "assets/images/perfil2.png",
+      "video": null,
+      "poster": "assets/images/perfil2.png",
+      "techStack": ["React", "TypeScript", "Storybook", "Stitches", "Figma API", "Changesets", "Vite"],
+      "category": "frontend",
+      "links": {
+        "demo": "https://aurora-ds.example.com",
+        "github": "https://github.com/usuario/aurora-design-system",
+        "npm": "https://npmjs.com/org/aurora-ds"
+      },
+      "featured": true,
+      "year": 2024,
+      "role": "Frontend Architect & Lead"
+    },
+    {
+      "id": "ml-price-predictor",
+      "title": "ML Price Predictor",
+      "shortDescription": "Modelo de Machine Learning para predicción de precios inmobiliarios con explicabilidad SHAP y API de inferencia.",
+      "fullDescription": "Proyecto de Data Science aplicado a real estate. Entrenamiento de modelos (XGBoost, LightGBM, Neural Nets) con feature engineering avanzado, validación cruzada temporal, y explicabilidad con SHAP values. Despliegue como API REST con FastAPI, monitoreo de drift con Evidently, y pipeline CI/CD con MLflow y DVC.",
+      "image": "assets/images/perfil.png",
+      "video": null,
+      "poster": "assets/images/perfil.png",
+      "techStack": ["Python", "FastAPI", "XGBoost", "LightGBM", "SHAP", "MLflow", "DVC", "Docker", "Kubernetes"],
+      "category": "data-science",
+      "links": {
+        "demo": "https://ml-price.example.com",
+        "github": "https://github.com/usuario/ml-price-predictor",
+        "notebook": "https://kaggle.com/usuario/ml-price"
+      },
+      "featured": false,
+      "year": 2023,
+      "role": "ML Engineer"
+    }
+  ],
+  "categories": [
+    { "id": "all", "label": "Todos", "icon": "grid" },
+    { "id": "featured", "label": "Destacados", "icon": "star" },
+    { "id": "fullstack", "label": "Fullstack", "icon": "layers" },
+    { "id": "frontend", "label": "Frontend", "icon": "monitor" },
+    { "id": "backend", "label": "Backend", "icon": "server" },
+    { "id": "webapp", "label": "Web Apps", "icon": "window" },
+    { "id": "tooling", "label": "Herramientas", "icon": "wrench" },
+    { "id": "data-science", "label": "Data Science", "icon": "bar-chart" }
+  ]
+}
