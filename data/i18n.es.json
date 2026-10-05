@@ -39,7 +39,17 @@
     "viewDemo": "Demo en vivo",
     "techStack": "Tecnologías",
     "role": "Rol",
-    "year": "Año"
+    "year": "Año",
+    "noResults": "No se encontraron proyectos",
+    "gallery": {
+      "title": "Galería del proyecto",
+      "desktop": "Escritorio",
+      "mobile": "Móvil",
+      "close": "Cerrar galería",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "counter": "{{current}} / {{total}}"
+    }
   },
   "projectModal": {
     "close": "Cerrar",
@@ -75,6 +85,8 @@
     "languageToggle": "Cambiar idioma",
     "projectCard": "Tarjeta de proyecto",
     "projectImage": "Imagen del proyecto",
-    "projectVideo": "Video del proyecto"
+    "projectVideo": "Video del proyecto",
+    "galleryImage": "Imagen de la galería",
+    "galleryNav": "Navegación de galería"
   }
 }

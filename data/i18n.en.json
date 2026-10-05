@@ -7,18 +7,18 @@
   },
   "hero": {
     "badge": "Fullstack Developer",
-    "title": "I build digital solutions",
+    "title": "I create digital solutions",
     "highlight": "innovative and scalable",
     "description": "Passionate developer building robust web applications, elegant interfaces, and clean architectures. Specialized in the modern JavaScript/TypeScript ecosystem.",
     "ctaPrimary": "View Projects",
-    "ctaSecondary": "Contact Me"
+    "ctaSecondary": "Contact"
   },
   "about": {
     "title": "About Me",
     "description": "Hi! I'm Gregorio Navarrete, a fullstack developer with over 3 years of experience creating modern web applications.",
-    "journey": "My programming journey started as a hobby over 3 years ago. At university I immersed myself in algorithm analysis and dynamic data structure programming in C, C++, and Java. However, I developed an interest in building programs in a more visual environment like the web, learning both frontend and backend.",
-    "learning": "Currently I keep learning and building web projects through courses on platforms like Digital House and Platzi.",
-    "highlights": "Among my achievements I highlight the creation of scalable systems, high-performance APIs, and accessible interfaces.",
+    "journey": "My programming journey started as a hobby over 3 years ago. In university, I immersed myself in algorithm analysis and program development with dynamic data structures in C, C++, and Java. However, I developed an interest in building programs in a more visual environment like the web, learning both frontend and backend.",
+    "learning": "Currently I keep learning and building web projects taking courses on platforms like Digital House and Platzi.",
+    "highlights": "Among my achievements, I highlight the creation of scalable systems, high-performance APIs, and accessible interfaces.",
     "cv": "Download CV"
   },
   "projects": {
@@ -39,7 +39,17 @@
     "viewDemo": "Live Demo",
     "techStack": "Technologies",
     "role": "Role",
-    "year": "Year"
+    "year": "Year",
+    "noResults": "No projects found",
+    "gallery": {
+      "title": "Project Gallery",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "close": "Close gallery",
+      "prev": "Previous",
+      "next": "Next",
+      "counter": "{{current}} / {{total}}"
+    }
   },
   "projectModal": {
     "close": "Close",
@@ -75,6 +85,8 @@
     "languageToggle": "Toggle language",
     "projectCard": "Project card",
     "projectImage": "Project image",
-    "projectVideo": "Project video"
+    "projectVideo": "Project video",
+    "galleryImage": "Gallery image",
+    "galleryNav": "Gallery navigation"
   }
 }

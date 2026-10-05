@@ -25,13 +25,17 @@ const AppState = {
 // Inicialización
 async function initApp() {
   try {
+    console.log('🔧 Iniciando app...');
+    
     // 1. Inicializar i18n (necesario para renderizar)
     AppState.i18n = new I18nManager();
     await AppState.i18n.init();
+    console.log('✅ i18n inicializado, lang:', AppState.i18n.getCurrentLanguage());
 
     // 2. Inicializar tema
     AppState.theme = new ThemeManager();
     AppState.theme.init();
+    console.log('✅ Tema inicializado:', AppState.theme.getCurrentTheme(), 'efectivo:', AppState.theme.getEffectiveTheme());
 
     // 3. Inicializar navegación
     AppState.navigation = new NavigationManager();
@@ -98,6 +102,14 @@ function setupGlobalListeners() {
   // Manejar cambios de tema
   window.addEventListener('theme:change', (e) => {
     // Las variables CSS se actualizan automáticamente
+  });
+
+  // Manejar apertura de galería desde el modal
+  window.addEventListener('project:gallery', (e) => {
+    const { project, startIndex } = e.detail;
+    if (project && project.images && project.images.length > 0) {
+      AppState.projects.openGallery(project.id, startIndex);
+    }
   });
 }
 

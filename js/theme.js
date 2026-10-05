@@ -69,6 +69,7 @@ export class ThemeManager {
   setTheme(theme) {
     if (!['light', 'dark', 'system'].includes(theme)) return false;
 
+    console.log('🎨 setTheme llamado:', theme);
     this.currentTheme = theme;
     localStorage.setItem('portfolio-theme', theme);
     this.applyTheme();
@@ -77,6 +78,7 @@ export class ThemeManager {
     window.dispatchEvent(new CustomEvent('theme:change', {
       detail: { theme: this.currentTheme, effectiveTheme: this.getEffectiveTheme() }
     }));
+    console.log('✅ Tema aplicado:', this.currentTheme, 'efectivo:', this.getEffectiveTheme());
 
     return true;
   }
@@ -92,17 +94,11 @@ export class ThemeManager {
     return this.currentTheme;
   }
 
-  getEffectiveTheme() {
-    if (this.currentTheme === 'system') {
-      return this.mediaQuery?.matches ? 'dark' : 'light';
-    }
-    return this.currentTheme;
-  }
-
   setupThemeButtons() {
     // Botones con data-theme-toggle
     document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       btn.addEventListener('click', () => {
+        console.log('🖱️ Click en theme button:', btn.dataset.themeToggle);
         const theme = btn.dataset.themeToggle;
         if (theme) {
           this.setTheme(theme);

@@ -131,14 +131,16 @@ export class ModalManager {
 
     const p = this.currentProject;
     const t = this.i18n.t.bind(this.i18n);
+    const hasVideo = p.video && p.video !== 'path_to_your_video.mp4';
+    const hasGallery = p.images && p.images.length > 0;
 
     // Media (imagen o video)
     const mediaContainer = this.modal.querySelector('[data-modal-media]');
-    const hasVideo = p.video && p.video !== 'path_to_your_video.mp4';
+    const firstImage = hasGallery ? p.images[0] : p.image;
 
     mediaContainer.innerHTML = hasVideo ?
-      `<video src="${p.video}" poster="${p.poster || p.image}" controls playsinline aria-label="${t('a11y.projectVideo')}: ${p.title}"></video>` :
-      `<img src="${p.image}" alt="${t('a11y.projectImage')}: ${p.title}" loading="eager">`;
+      `<video src="${p.video}" poster="${p.poster || firstImage}" controls playsinline aria-label="${t('a11y.projectVideo')}: ${p.title}"></video>` :
+      `<img src="${firstImage}" alt="${t('a11y.projectImage')}: ${p.title}" loading="eager">`;
 
     // Título
     this.modal.querySelector('.modal__title').textContent = p.title;
@@ -152,7 +154,7 @@ export class ModalManager {
       ${p.role ? `<span class="badge">${p.role}</span>` : ''}
     `;
 
-    // Descripción
+    // Descripción completa
     this.modal.querySelector('.modal__description').textContent = p.fullDescription;
 
     // Detalles (tech stack, links)
@@ -176,6 +178,21 @@ export class ModalManager {
           </div>
         </div>
       ` : ''}
+      ${hasGallery && p.images.length > 1 ? `
+        <div class="modal__detail">
+          <h4>${t('projects.gallery.title')}</h4>
+          <button class="btn btn--secondary btn--sm" id="openGalleryBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; margin-right: 6px;">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <circle cx="15.5" cy="8.5" r="1.5"></circle>
+              <circle cx="8.5" cy="15.5" r="1.5"></circle>
+              <circle cx="15.5" cy="15.5" r="1.5"></circle>
+            </svg>
+            ${t('projects.gallery.title')} (${p.images.length} imágenes)
+          </button>
+        </div>
+      ` : ''}
     `;
 
     // Acciones principales (footer del modal)
@@ -184,6 +201,14 @@ export class ModalManager {
       ${p.links.demo ? `<a href="${p.links.demo}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">${t('projectModal.demo')}</a>` : ''}
       ${p.links.github ? `<a href="${p.links.github}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">${t('projectModal.github')}</a>` : ''}
     `;
+
+    // Event listener para abrir galería desde el modal
+    const galleryBtn = this.modal.querySelector('#openGalleryBtn');
+    if (galleryBtn) {
+      galleryBtn.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('project:gallery', { detail: { project: p, startIndex: 0 } }));
+      });
+    }
   }
 
   getCategoryLabel(categoryId) {

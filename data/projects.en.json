@@ -2,12 +2,20 @@
   "projects": [
     {
       "id": "prisma",
-      "title": "Prisma Project",
+      "title": "Proyecto Prisma",
       "shortDescription": "Enterprise management platform with inventory, sales, and real-time analytics modules.",
-      "fullDescription": "Prisma Project is a complete enterprise management solution (ERP) developed for SMEs that need to centralize their operations. It includes smart inventory modules with stock alerts, integrated point of sale (POS), electronic invoicing, lightweight CRM, and an analytical dashboard with real-time metrics using WebSockets.",
-      "image": "assets/images/perfil2.png",
-      "video": "assets/videos/path_to_your_video.mp4",
-      "poster": "assets/images/perfil2.png",
+      "fullDescription": "Proyecto Prisma is a complete enterprise management solution (ERP) developed for SMEs that need to centralize their operations. It includes smart inventory modules with stock alerts, integrated point of sale (POS), electronic invoicing, lightweight CRM, and an analytical dashboard with real-time metrics using WebSockets. The modular architecture allows each component to scale independently.",
+      "images": [
+        "assets/images/projects/prisma/desktop-1.png",
+        "assets/images/projects/prisma/desktop-2.png",
+        "assets/images/projects/prisma/desktop-3.png",
+        "assets/images/projects/prisma/mobile-1.png",
+        "assets/images/projects/prisma/mobile-2.png",
+        "assets/images/projects/prisma/mobile-3.png",
+        "assets/images/projects/prisma/mobile-4.png"
+      ],
+      "video": null,
+      "poster": "assets/images/projects/prisma/desktop-1.png",
       "techStack": ["React", "TypeScript", "Node.js", "PostgreSQL", "WebSockets", "Tailwind CSS", "Docker"],
       "category": "fullstack",
       "links": {
@@ -23,10 +31,13 @@
       "id": "taskflow",
       "title": "TaskFlow",
       "shortDescription": "Collaborative productivity app with Kanban boards, automations, and team metrics.",
-      "fullDescription": "TaskFlow is a project management tool inspired by Linear and Notion. It allows creating workspaces, customizable Kanban boards, 'if this then that' automations, time tracking, and productivity reports per team member. Implements real-time collaborative editing using CRDTs.",
-      "image": "assets/images/perfil.png",
+      "fullDescription": "TaskFlow is a project management tool inspired by Linear and Notion. It allows creating workspaces, customizable Kanban boards, 'if-this-then-that' automations, time tracking, and productivity reports per team member. It implements real-time collaborative editing using CRDTs (Yjs) for conflict-free synchronization. Includes offline-first mode with automatic sync on reconnection.",
+      "images": [
+        "assets/images/projects/taskflow/1.png",
+        "assets/images/projects/taskflow/2.png"
+      ],
       "video": null,
-      "poster": "assets/images/perfil.png",
+      "poster": "assets/images/projects/taskflow/1.png",
       "techStack": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Socket.io", "Yjs", "Vercel"],
       "category": "webapp",
       "links": {
@@ -42,10 +53,13 @@
       "id": "devhub",
       "title": "DevHub CLI",
       "shortDescription": "Command-line tool to automate development workflows: scaffolding, deploy, monitoring.",
-      "fullDescription": "DevHub CLI is an open source tool that automates repetitive development tasks. Includes project generators (React, Next.js, Node, Go), secrets management integrated with 1Password/Bitwarden, deploy to multiple clouds (Vercel, AWS, Railway), and application health monitoring with Slack/Discord alerts.",
-      "image": "assets/images/perfil2.png",
+      "fullDescription": "DevHub CLI is an open source tool that automates repetitive development tasks. It includes project generators (React, Next.js, Node, Go), secrets management integrated with 1Password/Bitwarden, deploy to multiple clouds (Vercel, AWS, Railway), and application health monitoring with Slack/Discord alerts. Designed with a plugin architecture for extensibility.",
+      "images": [
+        "assets/images/projects/devhub/1.png",
+        "assets/images/projects/devhub/2.png"
+      ],
       "video": null,
-      "poster": "assets/images/perfil2.png",
+      "poster": "assets/images/projects/devhub/1.png",
       "techStack": ["TypeScript", "Node.js", "Commander.js", "Inquirer", "Docker", "GitHub Actions"],
       "category": "tooling",
       "links": {
@@ -61,10 +75,13 @@
       "id": "ecomerce-api",
       "title": "E-Commerce API",
       "shortDescription": "High-performance RESTful API for e-commerce with hexagonal architecture and domain events.",
-      "fullDescription": "Robust backend for e-commerce platforms built with hexagonal architecture (Ports & Adapters). Implements CQRS to separate read/write, event sourcing for complete audit trail, payment idempotency, adaptive rate limiting, and exhaustive testing (unit, integration, contract). Automatic OpenAPI 3.1 documentation.",
-      "image": "assets/images/perfil.png",
+      "fullDescription": "Robust backend for e-commerce platforms built with hexagonal architecture (Ports & Adapters). Implements CQRS to separate read/write, event sourcing for complete audit trail, payment idempotency, adaptive rate limiting, and exhaustive testing (unit, integration, contract). Automatic OpenAPI 3.1 documentation. Supports multi-tenancy and feature flags.",
+      "images": [
+        "assets/images/projects/ecomerce/1.png",
+        "assets/images/projects/ecomerce/2.png"
+      ],
       "video": null,
-      "poster": "assets/images/perfil.png",
+      "poster": "assets/images/projects/ecomerce/1.png",
       "techStack": ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Redis", "RabbitMQ", "Kafka", "Jest", "k6"],
       "category": "backend",
       "links": {
@@ -79,11 +96,14 @@
     {
       "id": "design-system",
       "title": "Aurora Design System",
-      "shortDescription": "Accessible and themeable design system with 60+ components, design tokens, and interactive documentation.",
-      "fullDescription": "Aurora is a complete design system built from scratch with focus on accessibility (WCAG 2.1 AA), advanced theming (dark mode, high contrast, brand themes), and developer experience. Includes interactive Storybook, CLI for component generation, Figma-synced tokens, and packages for React, Vue, and vanilla HTML.",
-      "image": "assets/images/perfil2.png",
+      "shortDescription": "Accessible, themable design system with 60+ components, design tokens, and interactive documentation.",
+      "fullDescription": "Aurora is a complete design system built from scratch with focus on accessibility (WCAG 2.1 AA), advanced theming (dark mode, high contrast, brand themes), and developer experience. Includes interactive Storybook, CLI for component generation, Figma-synced tokens, and packages for React, Vue, and vanilla HTML. Zero-runtime CSS with Stitches.",
+      "images": [
+        "assets/images/projects/aurora/1.png",
+        "assets/images/projects/aurora/2.png"
+      ],
       "video": null,
-      "poster": "assets/images/perfil2.png",
+      "poster": "assets/images/projects/aurora/1.png",
       "techStack": ["React", "TypeScript", "Storybook", "Stitches", "Figma API", "Changesets", "Vite"],
       "category": "frontend",
       "links": {
@@ -99,10 +119,13 @@
       "id": "ml-price-predictor",
       "title": "ML Price Predictor",
       "shortDescription": "Machine Learning model for real estate price prediction with SHAP explainability and inference API.",
-      "fullDescription": "Data Science project applied to real estate. Training of models (XGBoost, LightGBM, Neural Nets) with advanced feature engineering, temporal cross-validation, and SHAP explainability. Deployed as REST API with FastAPI, drift monitoring with Evidently, and CI/CD pipeline with MLflow and DVC.",
-      "image": "assets/images/perfil.png",
+      "fullDescription": "Data Science project applied to real estate. Training of models (XGBoost, LightGBM, Neural Nets) with advanced feature engineering, temporal cross-validation, and explainability with SHAP values. Deployed as REST API with FastAPI, drift monitoring with Evidently, and CI/CD pipeline with MLflow and DVC. Includes exploration notebooks and automated metrics reporting.",
+      "images": [
+        "assets/images/projects/ml-price/1.png",
+        "assets/images/projects/ml-price/2.png"
+      ],
       "video": null,
-      "poster": "assets/images/perfil.png",
+      "poster": "assets/images/projects/ml-price/1.png",
       "techStack": ["Python", "FastAPI", "XGBoost", "LightGBM", "SHAP", "MLflow", "DVC", "Docker", "Kubernetes"],
       "category": "data-science",
       "links": {

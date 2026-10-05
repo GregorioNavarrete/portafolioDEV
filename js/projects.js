@@ -5,6 +5,8 @@
  * Maneja renderizado, filtrado y visualización de proyectos
  */
 
+import { Gallery } from './gallery.js';
+
 export class ProjectManager {
   constructor(i18nManager) {
     this.i18n = i18nManager;
@@ -14,6 +16,7 @@ export class ProjectManager {
     this.filteredProjects = [];
     this.gridElement = null;
     this.filterContainer = null;
+    this.gallery = null;
   }
 
   async init() {
@@ -29,6 +32,10 @@ export class ProjectManager {
       console.warn('Projects grid element not found');
       return;
     }
+
+    // Inicializar galería
+    this.gallery = new Gallery({ i18n: this.i18n });
+    this.gallery.init();
 
     // Renderizar filtros
     this.renderFilters();
@@ -58,9 +65,42 @@ export class ProjectManager {
     if (this.gridElement) {
       this.gridElement.addEventListener('click', (e) => {
         const card = e.target.closest('[data-project-id]');
-        if (card && !e.target.closest('[data-project-link]')) {
+        if (!card) return;
+
+        const projectId = card.dataset.projectId;
+
+        // Click en enlace del proyecto
+        if (e.target.closest('[data-project-link]')) {
+          return; // Dejar que el enlace navegue normalmente
+        }
+
+        // Click en botón de galería
+        if (e.target.closest('[data-gallery-trigger]')) {
+          e.stopPropagation();
+          this.openGallery(projectId);
+          return;
+        }
+
+        // Click en la tarjeta -> abrir modal
+        this.openProjectModal(projectId);
+      });
+
+      // Soporte de teclado para tarjetas (Enter/Space para abrir modal)
+      this.gridElement.addEventListener('keydown', (e) => {
+        const card = e.target.closest('[data-project-id]');
+        if (!card) return;
+
+        if (e.key === 'Enter' || e.key === ' ') {
           const projectId = card.dataset.projectId;
-          this.openProjectModal(projectId);
+
+          // Si el foco está en el botón de galería, abrir galería
+          if (e.target.closest('[data-gallery-trigger]')) {
+            e.preventDefault();
+            this.openGallery(projectId);
+          } else {
+            e.preventDefault();
+            this.openProjectModal(projectId);
+          }
         }
       });
     }
@@ -71,7 +111,7 @@ export class ProjectManager {
 
     const t = this.i18n.t.bind(this.i18n);
 
-    this.filterContainer.innerHTML = this.categories.map((cat, index) => `
+    this.filterContainer.innerHTML = this.categories.map((cat) => `
       <button
         class="filter-btn ${cat.id === 'all' ? 'filter-btn--active' : ''}"
         data-filter="${cat.id}"
@@ -129,12 +169,16 @@ export class ProjectManager {
   renderProjectCard(project, index) {
     const t = this.i18n.t.bind(this.i18n);
     const hasVideo = project.video && project.video !== 'path_to_your_video.mp4';
+    const hasGallery = project.images && project.images.length > 0;
 
     return `
       <article
         class="project-card reveal reveal--stagger-${(index % 6) + 1}"
         data-project-id="${project.id}"
         style="--stagger-delay: ${index * 100}ms"
+        tabindex="0"
+        role="article"
+        aria-label="${t('a11y.projectCard')}: ${project.title}"
       >
         <div class="project-card__media">
           ${hasVideo ?
@@ -150,7 +194,7 @@ export class ProjectManager {
             ></video>` :
             `<img
               class="project-card__image"
-              src="${project.image}"
+              src="${project.images?.[0] || project.image}"
               alt="${t('a11y.projectImage')}: ${project.title}"
               loading="lazy"
               width="400"
@@ -167,18 +211,45 @@ export class ProjectManager {
               }
             </div>
           </div>
+
+          ${hasGallery && project.images.length > 1 ? `
+            <div class="project-card__gallery-indicator" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <circle cx="15.5" cy="8.5" r="1.5"></circle>
+                <circle cx="8.5" cy="15.5" r="1.5"></circle>
+                <circle cx="15.5" cy="15.5" r="1.5"></circle>
+              </svg>
+              <span>${project.images.length}</span>
+            </div>
+            <button
+              class="project-card__gallery-trigger"
+              data-gallery-trigger
+              aria-label="${t('projects.gallery.title')}: ${project.title}"
+              type="button"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <circle cx="15.5" cy="8.5" r="1.5"></circle>
+                <circle cx="8.5" cy="15.5" r="1.5"></circle>
+                <circle cx="15.5" cy="15.5" r="1.5"></circle>
+              </svg>
+            </button>
+          ` : ''}
         </div>
         <div class="project-card__content">
           <h3 class="project-card__title">${project.title}</h3>
           <p class="project-card__description">${project.shortDescription}</p>
           <div class="project-card__footer">
             ${project.links.demo ? `
-              <a href="${project.links.demo}" class="btn btn--primary btn--sm" data-project-link target="_blank" rel="noopener noreferrer">
+              <a href="${project.links.demo}" class="btn btn--primary btn--sm project-card__link" data-project-link target="_blank" rel="noopener noreferrer">
                 ${t('projects.viewDemo')}
               </a>
             ` : ''}
             ${project.links.github ? `
-              <a href="${project.links.github}" class="btn btn--secondary btn--sm" data-project-link target="_blank" rel="noopener noreferrer">
+              <a href="${project.links.github}" class="btn btn--secondary btn--sm project-card__link" data-project-link target="_blank" rel="noopener noreferrer">
                 ${t('projects.viewCode')}
               </a>
             ` : ''}
@@ -217,6 +288,13 @@ export class ProjectManager {
     }
   }
 
+  openGallery(projectId, startIndex = 0) {
+    const project = this.projects.find(p => p.id === projectId);
+    if (project && project.images && project.images.length > 0) {
+      this.gallery.open(project.images, startIndex);
+    }
+  }
+
   refresh() {
     // Recargar datos del i18n
     this.projects = this.i18n.getProjects();
@@ -229,5 +307,6 @@ export class ProjectManager {
 
   destroy() {
     this.unsubscribeI18n?.();
+    this.gallery?.destroy();
   }
 }
